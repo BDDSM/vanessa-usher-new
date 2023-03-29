@@ -1,0 +1,135 @@
+{
+  "v8Version" : "8.3",
+  "agent" : "any",
+  "matrixTesting" : {
+    "agents" : [ ]
+  },
+  "debug" : false,
+  "notification" : {
+    "mode" : "NO_USE",
+    "email" : "test@localhost",
+    "slack" : {
+      "channelName" : "#build"
+    },
+    "telegram" : {
+      "chatId" : "1234567890"
+    }
+  },
+  "vrunnerConfig" : "./tools/JSON/vRunner.json",
+  "junitPath" : "./out/junit",
+  "timeout" : 100,
+  "defaultInfobase" : {
+    "connectionString" : "/F.build/ib",
+    "auth" : ""
+  },
+  "stages" : {
+    "gitsync" : false,
+    "edtTransform" : false,
+    "prepareBase" : false,
+    "runExternal" : false,
+    "checkExtensions" : false,
+    "syntaxCheck" : false,
+    "smoke" : false,
+    "tdd" : false,
+    "bdd" : false,
+    "sonarqube" : false,
+    "build" : false,
+    "yard" : false
+  },
+  "gitsync" : {
+    "timeout" : 40,
+    "configPath" : "./tools/JSON/gitsync_conf.JSON",
+    "auth" : "",
+    "useTemporaryInfobase" : false,
+    "tempPath" : ""
+  },
+  "edtTransform" : {
+    "timeout" : 30,
+    "edt" : "edt",
+    "workspacePath" : "./build/workspace",
+    "sourcePath" : "./src/cf",
+    "outPath" : "./build/out"
+  },
+  "preparebase" : {
+    "timeout" : 100,
+    "sourcePath" : "./src/cf",
+    "template" : "",
+    "repo" : {
+      "path" : "",
+      "auth" : "",
+      "empty" : false
+    },
+    "extensions" : [ ]
+  },
+  "runExternal" : {
+    "timeout" : 100,
+    "vrunnerAdditionals" : [ ],
+    "pathEpf" : "./tools/epf/",
+    "settings" : "./tools/JSON/vRunnerExternalOptions.JSON",
+    "allurePath" : "./out/runExternal/allure",
+    "junitPath" : "./out/junit/runExternal.xml"
+  },
+  "checkExtensions" : {
+    "timeout" : 40,
+    "repo" : {
+      "path" : "",
+      "auth" : "",
+      "empty" : false
+    },
+    "extensions" : ""
+  },
+  "syntaxCheck" : {
+    "timeout" : 100,
+    "allurePath" : "./out/syntaxCheck/allure",
+    "junitPath" : "./out/junit/syntaxCheck.xml",
+    "checkExtensions" : false,
+    "groupByMetadata" : true,
+    "mode" : [ "-ThinClient", "-Server", "-ConfigLogIntegrity", "-HandlersExistence", "-ExtendedModulesCheck" ],
+    "exceptionFile" : "./tools/syntax-check/exceptionFile.txt"
+  },
+  "smoke" : {
+    "timeout" : 100,
+    "xddConfig" : "./tools/JSON/smokeTestRunnerConf.json",
+    "testPath" : "$addroot/tests/smoke",
+    "allurePath" : "./out/smoke/allure",
+    "junitPath" : "./out/junit/smoke.xml",
+    "pathXUnit" : ""
+  },
+  "tdd" : {
+    "timeout" : 100,
+    "xddConfig" : "./tools/JSON/xddTestRunnerConf.json",
+    "testPath" : "./tests/unit",
+    "allurePath" : "./out/tdd/allure",
+    "junitPath" : "./out/junit/xdd.xml",
+    "pathXUnit" : ""
+  },
+  "bdd" : {
+    "timeout" : 100,
+    "allurePath" : "./out/bddallure",
+    "pathVanessa" : "",
+    "vanessasettings" : "./tools/JSON/vanessaConf.json"
+  },
+  "sonarqube" : {
+    "timeout" : 100,
+    "agent" : "any",
+    "toolId" : "sonar-scanner",
+    "serverId" : "SonarQube",
+    "debug" : false,
+    "useBranch" : false
+  },
+  "build" : {
+    "timeout" : 100,
+    "distPath" : ".packman/1cv8.cf",
+    "errorIfJobStatusOfFailure" : false
+  },
+  "yard" : {
+    "timeout" : 300,
+    "appName" : "",
+    "descriptionPath" : "./description.json",
+    "yardSettingsPath" : "./yardsettings.json",
+    "auth" : "",
+    "workspacePath" : "./",
+    "branch" : "master",
+    "debug" : false
+  }
+}
